@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestResources {
     @GetMapping("resources/{name}")
     public String getName(@PathVariable String name ){
-        return "Hello "+name;
+        return "Hello test "+name;
 
     }
 }
