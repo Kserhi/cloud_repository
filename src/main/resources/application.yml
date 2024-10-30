@@ -1,0 +1,20 @@
+telegram:
+  bot:
+    username: ldubgdDekanat_bot
+    token: 6139727723:AAGhYLSHJaIzSF0yDyps1b3d14PLB3oXQnI
+
+link:
+  address: 192.168.43.41:8000
+
+spring:
+  dotenv:
+    enabled: true
+  datasource:
+    url: jdbc:postgresql://2a02:2378:1052:3f2b:1280:2d2a:7dd2:a0e4:5434/crm
+    username: root
+    password: root
+  jpa:
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+
+salt: lfq,j;tpljhjdz

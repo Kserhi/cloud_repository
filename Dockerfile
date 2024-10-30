@@ -1,16 +1,14 @@
-FROM maven:3.8.4-openjdk-17-slim AS build
-
-WORKDIR /app
-
-COPY pom.xml .
-COPY src ./src
-
-RUN mvn clean install -DskipTests
-
+# Вказуємо базовий образ, який містить JDK для запуску Spring Boot
 FROM openjdk:17-jdk-slim
 
-WORKDIR /app
 
-COPY --from=build /app/target/spring-simple-service-demo-0.0.1-SNAPSHOT.jar /app.jar
 
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+# Вказуємо робочий каталог для Docker-контейнера
+WORKDIR /crm_system
+
+# Копіюємо jar-файл, який буде виконуватись
+COPY target/bot-for-uni-0.0.1-SNAPSHOT.jar bot-for-uni.jar
+
+
+# Вказуємо команду для запуску програми
+ENTRYPOINT ["java", "-jar", "bot-for-uni.jar"]

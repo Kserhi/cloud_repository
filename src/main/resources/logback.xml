@@ -1,0 +1,41 @@
+<configuration>
+    <!-- Конфігурація апендера для запису логів у файл -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- Назва файлу логів -->
+        <file>appLogs/botForUniLogs/botForUniLog.log</file>
+
+        <!-- Налаштування ротації файлів логів -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- Формат назви ротаційних файлів: створення нових файлів кожну годину -->
+            <fileNamePattern>appLogs/botForUniLogs/botForUniLog.%d{yyyy-MM-dd.HH}.log</fileNamePattern>
+            <!-- Максимальний час зберігання файлів логів (7 днів) -->
+            <maxHistory>7</maxHistory>
+            <!-- Зберігати файли за допомогою стратегії зберігання -->
+            <totalSizeCap>1GB</totalSizeCap> <!-- Максимальний обсяг усіх файлів логів -->
+        </rollingPolicy>
+
+        <!-- Формат повідомлень логів -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Конфігурація апендера для виводу логів у консоль -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Логер для ваших власних класів: вивід у файл та консоль -->
+    <logger name="com.botforuni" level="info" additivity="false">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <!-- Рівень логування та додатки для root логера -->
+    <root level="info">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>

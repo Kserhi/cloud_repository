@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: ldubgd.edu.ua.spring_simple_service_demo.SpringSimpleServiceDemoApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.230 s -- in ldubgd.edu.ua.spring_simple_service_demo.SpringSimpleServiceDemoApplicationTests
